@@ -21,9 +21,12 @@ def index():
     return 'Bot attivo!'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
-@app.route('/setwebhook')
+   @app.route('/setwebhook', methods=['GET'])
 def set_webhook():
-    webhook_url = 'https://https://biggshop-bot-hnpg.onrender.com/webhook'
-    s = bot.setWebhook(webhook_url)
-    return f"Webhook impostato: {s}"
+    webhook_url = 'https://big-shop-bot.onrender.com/webhook'
+    success = bot.set_webhook(webhook_url)
+    if success:
+        return "Webhook impostato: True"
+    else:
+        return "Webhook impostato: False"
+
