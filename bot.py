@@ -21,7 +21,8 @@ def index():
     return 'Bot attivo!'
 
 if __name__ == '__main__':
-  @app.route('/setwebhook', methods=['GET'])
+  @app.route('/setwebhook', methods=['GET']
+
 def set_webhook():
     webhook_url = 'https://big-shop-bot.onrender.com/webhook'
     print(f"Impostando webhook a: {webhook_url}")
