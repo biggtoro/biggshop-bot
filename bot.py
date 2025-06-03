@@ -4,7 +4,7 @@ import os
 from flask import Flask, request
 
 TOKEN = '7617313022:AAEYiV2eeepKMAPANBHagQgFsdEg3fmMYXY'
-WEBHOOK_URL = f"https://{os.environ.get('RENDER_EXTERNAL_HOSTNAME')}/webhook"
+WEBHOOK_URL = f"https://{os.environ.get('https://biggshop-bot.onrender.com')}/webhook"
 
 WELCOME_MESSAGE = (
     "👋 *BENVENUTI NELLO SHOP DI BIG!*\n\n"
