@@ -28,5 +28,16 @@ def set_webhook():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    try:
+        print("Webhook chiamato!")
+        update = telegram.Update.de_json(request.get_json(force=True), bot)
+        chat_id = update.message.chat.id
+        print(f"Messaggio da chat_id: {chat_id}")
+        bot.send_message(chat_id=chat_id, text="BENVENUTI NELLO SHOP DI BIG...")
+    except Exception as e:
+        print(f"Errore nel webhook: {e}")
+    return 'OK'
 
 
