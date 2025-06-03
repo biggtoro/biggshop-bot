@@ -24,9 +24,11 @@ bot_app.add_handler(CommandHandler("start", start))
 def webhook():
     return bot_app.update_webhook(request)
 
-@app.before_first_request
-def setup():
+def set_webhook():
     bot_app.bot.set_webhook(WEBHOOK_URL)
+    print(f"Webhook settato a: {WEBHOOK_URL}")
 
 if __name__ == '__main__':
+    set_webhook()
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+
