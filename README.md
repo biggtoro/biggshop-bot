@@ -1,1 +1,0 @@
-# biggshop-bot
