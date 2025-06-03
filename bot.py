@@ -21,10 +21,11 @@ def webhook():
 def index():
     return 'Bot attivo!'
 
-@app.before_first_request
 def set_webhook():
     bot.delete_webhook()
     bot.set_webhook(f'{URL}')
+
+set_webhook()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
